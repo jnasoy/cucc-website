@@ -1,4 +1,5 @@
 :root {
+  --brand-color: #FDA214;
   --dark-base: #16161d;
   --accent: 136, 58, 234;
   --accent-light: 224, 204, 250;
@@ -12,7 +13,6 @@
 }
 html {
   @apply font-sans;
-  background: var(--dark-base);
 }
 code {
   font-family:

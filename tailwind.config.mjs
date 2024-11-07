@@ -12,7 +12,10 @@ export default {
 		extend: {
 			fontFamily:{
 				serif: ['Yeseva One', ...defaultTheme.fontFamily.serif],
-				sans: ['Chivo', ...defaultTheme.fontFamily.sans],
+				sans: ['Lato', ...defaultTheme.fontFamily.sans],
+			},
+			colors:{
+				'brand-color': '#FDA214',
 			}
 		},
 	},
