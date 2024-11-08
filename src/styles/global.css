@@ -10,6 +10,8 @@
     rgb(var(--accent-light)) 30%,
     white 60%
   );
+
+  --page-dw: min(90vw, 1280px);
 }
 html {
   @apply font-sans;

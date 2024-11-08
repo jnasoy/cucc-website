@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionWrapper from "@/layouts/SectionWrapper.astro";
 ---
 
 <BaseLayout title="Cucc Outreach">
-  <main class="grid min-h-[200vh] place-content-center">
+  <SectionWrapper fullBleed class="p-20" contentWrapperClass="bg-purple-500">
     <h1 class="font-serif text-white text-4xl">CUCC Unity In Action Page</h1>
     <iframe
       width="560"
@@ -14,5 +15,5 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen></iframe>
-  </main>
+  </SectionWrapper>
 </BaseLayout>

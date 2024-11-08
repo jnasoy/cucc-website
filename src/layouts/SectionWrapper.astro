@@ -1,0 +1,35 @@
+---
+interface Props {
+  fullBleed?: boolean;
+  class?: string;
+  contentWrapperClass?: string;
+}
+
+const {
+  fullBleed,
+  class: className,
+  contentWrapperClass,
+  ...props
+} = Astro.props;
+---
+
+<section
+  class:list={[
+    className,
+    {
+      "w-full col-span-full": fullBleed,
+      "col-start-2": !fullBleed,
+    },
+  ]}
+  {...props}
+>
+  <article
+    class:list={[
+      "text-slate-800 px-8",
+      contentWrapperClass,
+      { "mx-auto max-w-[var(--page-dw)]": fullBleed },
+    ]}
+  >
+    <slot />
+  </article>
+</section>

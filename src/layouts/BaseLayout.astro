@@ -11,7 +11,6 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,6 +22,16 @@ const { title } = Astro.props;
   </head>
   <body>
     <MainNavigation />
-    <slot />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr var(--page-dw) 1fr;
+    min-height: 100dvh;
+  }
+</style>

@@ -1,33 +1,36 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import SectionWrapper from "@/layouts/SectionWrapper.astro";
 ---
 
 <BaseLayout title="Cebu United Car Campers | Page under active development">
-  <article class="grid place-content-center min-h-screen gap-2 text-center">
-    <!-- <LottieAnimation
+  <!-- <LottieAnimation
       src="https://lottie.host/12aaf0b6-4734-448f-9f85-c0e3b22b60ec/yxfCnLTd9H.json"
       autoplay="visible"
     /> -->
-    <!-- <LottieAnimation
+  <!-- <LottieAnimation
       src="https://lottie.host/6e3eefe6-0733-4643-8bd2-ba612c8a61cb/p0YLokzDGE.json"
       autoplay="visible"
     /> -->
-    <!-- <LottieAnimation
+  <!-- <LottieAnimation
       src="https://lottie.host/65ad2fca-735a-4fb6-80e5-26f220c6b26e/dXPAOmGJNE.json"
       autoplay="visible"
     /> -->
-    <!-- <LottieAnimation
+  <!-- <LottieAnimation
       src="https://lottie.host/36a23853-f197-4d8d-b6b5-61a4ad2878d1/ZSjgNpKvRH.json"
       autoplay="visible"
     /> -->
+  <SectionWrapper class="place-self-center">
     <LottieAnimation
       src="https://lottie.host/07a7f387-aa6d-4de1-94c0-b62f480ededf/zDBkThcK9Z.json"
       autoplay="visible"
     />
-    <h1 class="text-slate-800 font-normal text-2xl font-serif">
-      Check back later
-    </h1>
-    <p class="text-slate-500">This page is actively in development</p>
-  </article>
+    <article class="text-center">
+      <h1 class="text-slate-800 font-normal text-2xl font-serif">
+        Check back later
+      </h1>
+      <p class="text-slate-500">This page is actively in development</p>
+    </article>
+  </SectionWrapper>
 </BaseLayout>
