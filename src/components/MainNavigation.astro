@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import cuccLogo from "@/assets/CUCC Wordmark Logo.png";
+const currentPath = Astro.url.pathname.split("/")[1];
+const navigationLinks = [
+  { name: "Trade Fair Campout", path: "/trade-fair-campout" },
+  { name: "Campfire Chronicles", path: "/campfire-chronicles" },
+  { name: "Unity In Action", path: "/unity-in-action" },
+  { name: "About Us", path: "/about-us" },
+];
+---
+
+<nav
+  class="shadow-md bg-white px-6 py-4 max-w-[864px] mx-auto rounded-full fixed top-10 left-0 right-0 z-50"
+>
+  <span class="sr-only">Cebu United Car Campers Official Website</span>
+  <section class="flex justify-between items-center">
+    <div class="flex gap-x-12 items-center">
+      <a href="/" class="text-2xl font-bold">
+        <Image src={cuccLogo} alt="CUCC Logo" width={80} />
+      </a>
+      <ul class="flex gap-x-4 items-center">
+        {
+          navigationLinks.map((link) => {
+            const linkPath = link.path.split("/")[1];
+            const isCurrentPath = currentPath === linkPath;
+            return (
+              <li>
+                <a
+                  href={link.path}
+                  class={isCurrentPath ? "text-brand-color" : "text-slate-700"}
+                >
+                  {link.name}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <span>CTA Here</span>
+  </section>
+</nav>
