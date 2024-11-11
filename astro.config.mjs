@@ -4,7 +4,9 @@ import lottie from 'astro-integration-lottie';
 
 import tailwind from '@astrojs/tailwind';
 
+import icon from 'astro-icon';
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), lottie()]
+  integrations: [tailwind(), lottie(), icon()]
 });

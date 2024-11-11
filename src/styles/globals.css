@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --brand-color: #FDA214;
   --dark-base: #16161d;
@@ -26,4 +30,11 @@ code {
     Bitstream Vera Sans Mono,
     Courier New,
     monospace;
+}
+
+
+@layer utilities {
+  .inner-content-wrapper {
+    @apply mx-auto max-w-[var(--page-dw)];
+  }
 }

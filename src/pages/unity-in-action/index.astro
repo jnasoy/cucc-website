@@ -1,19 +1,51 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
+import { Image, Picture } from "astro:assets";
+
+import heroBnnaer from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
 ---
 
 <BaseLayout title="Cucc Outreach">
-  <SectionWrapper fullBleed class="p-20" contentWrapperClass="bg-purple-500">
-    <h1 class="font-serif text-white text-4xl">CUCC Unity In Action Page</h1>
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/kYKn7KD4V7E?si=WP_lmAsun3gCktim&controls=0"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen></iframe>
+  <SectionWrapper fullBleed>
+    <article class="hero-wrapper">
+      <Picture
+        src={heroBnnaer}
+        alt="Image of people in a sunset"
+        class="h-full w-screen object-cover"
+        loading="eager"
+        formats={["avif", "webp"]}
+      />
+      <div class="inner-content-wrapper hero-main-content space-y-14 py-10">
+        <div class="space-y-3">
+          <h1 class="font-serif text-brand-color ~text-7xl/9xl">
+            Unity in Action
+          </h1>
+          <h2 class="font-serif text-4xl text-white">
+            United in Service, Inspiring Change
+          </h2>
+        </div>
+        <p class="mx-auto max-w-[45ch] text-xl text-white">
+          An annual Christmas season community outreach event organized by Cebu
+          United Car Campers
+        </p>
+        <p class="text-brand-color">CTA here</p>
+      </div>
+    </article>
   </SectionWrapper>
 </BaseLayout>
+
+<style>
+  .hero-wrapper {
+    display: grid;
+    grid-template-areas: "stacked";
+    & > * {
+      grid-area: stacked;
+    }
+
+    .hero-main-content {
+      place-content: center;
+      text-align: center;
+    }
+  }
+</style>

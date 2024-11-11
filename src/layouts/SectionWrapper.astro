@@ -23,13 +23,5 @@ const {
   ]}
   {...props}
 >
-  <article
-    class:list={[
-      "text-slate-800 px-8",
-      contentWrapperClass,
-      { "mx-auto max-w-[var(--page-dw)]": fullBleed },
-    ]}
-  >
-    <slot />
-  </article>
+  <slot />
 </section>
