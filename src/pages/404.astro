@@ -1,20 +1,25 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+import SectionWrapper from "@/layouts/SectionWrapper.astro";
 ---
 
 <BaseLayout title="Cebu United Car Campers | Page under active development">
-  <LottieAnimation
-    src="https://lottie.host/0e35969d-3ea9-4821-9ce0-fda30bce7af5/m1cJ3EpWNQ.json"
-    autoplay="visible"
-  />
-  <h1 class="text-slate-800 font-normal text-2xl font-serif">
-    I think you're lost
-  </h1>
-  <a
-    href="/"
-    class="text-white p-2 rounded-full font-normal text-sm font-sans bg-brand-color"
-  >
-    Navigate home
-  </a>
+  <SectionWrapper>
+    <article>
+      <LottieAnimation
+        src="https://lottie.host/0e35969d-3ea9-4821-9ce0-fda30bce7af5/m1cJ3EpWNQ.json"
+        autoplay="visible"
+      />
+      <h1 class="font-serif text-2xl font-normal text-slate-800">
+        I think you're lost
+      </h1>
+      <a
+        href="/"
+        class="rounded-full bg-brand-color p-2 font-sans text-sm font-normal text-white"
+      >
+        Navigate home
+      </a>
+    </article>
+  </SectionWrapper>
 </BaseLayout>
