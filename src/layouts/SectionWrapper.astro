@@ -2,15 +2,10 @@
 interface Props {
   fullBleed?: boolean;
   class?: string;
-  contentWrapperClass?: string;
+  style?: string;
 }
 
-const {
-  fullBleed,
-  class: className,
-  contentWrapperClass,
-  ...props
-} = Astro.props;
+const { fullBleed, class: className, style, ...props } = Astro.props;
 ---
 
 <section
@@ -21,6 +16,7 @@ const {
       "col-start-2": !fullBleed,
     },
   ]}
+  style={style}
   {...props}
 >
   <slot />

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --brand-color: #FDA214;
+  --brand-color: #fda214;
   --dark-base: #16161d;
   --accent: 136, 58, 234;
   --accent-light: 224, 204, 250;
@@ -16,6 +16,7 @@
   );
 
   --page-dw: min(90vw, 1280px);
+  --inner-page-padding-x: 2rem;
 }
 html {
   @apply font-sans;
@@ -32,9 +33,8 @@ code {
     monospace;
 }
 
-
 @layer utilities {
   .inner-content-wrapper {
-    @apply mx-auto max-w-[var(--page-dw)];
+    @apply mx-auto max-w-[var(--page-dw)] px-[var(--inner-page-padding-x)];
   }
 }

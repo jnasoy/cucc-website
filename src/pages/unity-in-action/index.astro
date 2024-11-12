@@ -1,16 +1,58 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
-import { Image, Picture } from "astro:assets";
+import ImageCard from "@/components/ImageCard.astro";
+import { imageConfig, Picture } from "astro:assets";
 
-import heroBnnaer from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
+import heroBanner from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
+import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
+
+type AboutSectionImageProps = {
+  path: string;
+  alt: string;
+  aspect: "square" | "video";
+};
+
+const aboutSectionImages: AboutSectionImageProps[] = [
+  {
+    path: "/src/assets/2023-event-snap-1.jpg",
+    alt: "Student holding the used clothes gift",
+    aspect: "square",
+  },
+  {
+    path: "/src/assets/2023-event-snap-2.jpg",
+    alt: "A group of happy and smiling students holding the event tarp",
+    aspect: "square",
+  },
+  {
+    path: "/src/assets/2023-event-snap-3.jpg",
+    alt: "Student holding a food pack",
+    aspect: "square",
+  },
+  {
+    path: "/src/assets/2023-event-snap-4.jpg",
+    alt: "School supplies",
+    aspect: "square",
+  },
+];
+
+const groupedAboutSectionImages = aboutSectionImages.reduce<
+  AboutSectionImageProps[][]
+>((result, item, index) => {
+  const groupIndex = Math.floor(index / 2);
+  if (!result[groupIndex]) {
+    result[groupIndex] = []; // Start a new group
+  }
+  result[groupIndex].push(item);
+  return result;
+}, []);
 ---
 
 <BaseLayout title="Cucc Outreach">
   <SectionWrapper fullBleed>
     <article class="hero-wrapper">
       <Picture
-        src={heroBnnaer}
+        src={heroBanner}
         alt="Image of people in a sunset"
         class="h-full w-screen object-cover"
         loading="eager"
@@ -31,6 +73,67 @@ import heroBnnaer from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.
         </p>
         <p class="text-brand-color">CTA here</p>
       </div>
+    </article>
+  </SectionWrapper>
+  <SectionWrapper
+    style={`background-image: url(${snowStarPatter.src})`}
+    class="bg-cover bg-fixed bg-center bg-no-repeat py-24"
+    fullBleed
+  >
+    <article class="inner-content-wrapper flex gap-8">
+      <div class="space-y-6 [&>p]:text-slate-600 [&>p]:text-xl flex-1">
+        <h1 class="mb-9 text-balance font-serif text-6xl text-slate-700">
+          Spreading Holiday Cheer Together
+        </h1>
+        <p>
+          The "<span class="font-bold text-brand-color">Unity in Action</span>"
+          event is our annual community outreach initiative held every December.
+          This heartwarming event aims to spread joy and support to less
+          fortunate individuals.
+        </p>
+        <p>
+          Throughout the year, we fundraise and collect donations from our
+          supporters. All proceeds are allocated to our chosen beneficiary,
+          ensuring our efforts make a meaningful impact. This year-round
+          commitment maximizes our support and creates lasting positive change
+          in our community.
+        </p>
+        <p>
+          This event brings together car camping enthusiasts and outdoor lovers
+          to make a positive impact during the festive season, embodying the
+          spirit of giving and community engagement.
+        </p>
+        <p>
+          Everyone is welcome to support this initiative by <a
+            class="text-brand-color underline"
+            href="/">donating</a
+          > and/or <a class="text-brand-color underline" href="/">joining</a> our
+          next outreach.
+        </p>
+      </div>
+      <ul class="grid flex-1 grid-cols-2 gap-8">
+        {
+          groupedAboutSectionImages.map((imageGroup) => {
+            return (
+              <li class="even:mt-14">
+                <ul class="flex flex-col gap-8">
+                  {imageGroup.map((imageMeta) => {
+                    return (
+                      <li>
+                        <ImageCard
+                          alt={imageMeta.alt}
+                          imagePath={imageMeta.path}
+                          aspect={imageMeta.aspect}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          })
+        }
+      </ul>
     </article>
   </SectionWrapper>
 </BaseLayout>
