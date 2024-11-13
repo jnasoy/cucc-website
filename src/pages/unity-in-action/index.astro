@@ -2,7 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
 import ImageCard from "@/components/ImageCard.astro";
-import { imageConfig, Picture } from "astro:assets";
+import { Picture } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import { Button } from "@/components/ui/button";
+import { Link } from "@/components/Link";
+import { DonationDialog } from "@/components/DonationDialog";
 
 import heroBanner from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
 import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
@@ -75,7 +80,13 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
           An annual Christmas season community outreach event organized by Cebu
           United Car Campers
         </p>
-        <p class="text-brand-color">CTA here</p>
+        <Button
+          className="rounded-full bg-brand-color hover:bg-brand-color-darker text-base uppercase text-yellow-900 font-bold px-8 py-6 transition-colors"
+          data-trigger="donationModal"
+        >
+          Make a Donation
+          <Icon name="donation-icon" />
+        </Button>
       </div>
     </article>
   </SectionWrapper>
@@ -154,7 +165,7 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
     <article
       class="inner-content-wrapper flex flex-col gap-10 text-center text-white"
     >
-      <h5 class="text-xl uppercase text-yellow-100 font-bold">
+      <h5 class="text-xl font-bold uppercase text-yellow-100">
         2024 beneficiary
       </h5>
       <div class="font-serif [&>h3]:text-3xl space-y-2">
@@ -175,20 +186,32 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
         </p>
       </div>
       <div>
-        <ul>
-          <li>CTA Here</li>
-          <li>Another CTA Here</li>
+        <ul class="flex gap-x-4 justify-center">
+          <li>
+            <Button
+              className="rounded-full bg-white text-brand-color text-base px-8 py-6 transition-colors uppercase font-bold hover:bg-yellow-100 hover:text-brand-color-darker"
+              data-trigger="donationModal">Support the outreach</Button
+            >
+          </li>
+          <li>
+            <Link
+              variant="outline"
+              className="border-white text-white bg-transparent rounded-full text-base px-8 py-6 transition-colors uppercase font-bold hover:border-yellow-100 hover:text-yellow-100"
+              href="/">Join the event</Link
+            >
+          </li>
         </ul>
       </div>
-      <hr class="h-1 border-none w-[20%] mx-auto bg-yellow-400" />
-      <h5 class="text-xl uppercase font-bold text-yellow-100">
+      <hr class="mx-auto h-1 w-[20%] border-none bg-yellow-400" />
+      <h5 class="text-xl font-bold uppercase text-yellow-100">
         After the outreach
       </h5>
-      <div class="font-serif space-y-2">
+      <div class="space-y-2 font-serif">
         <h3 class="text-5xl">Christmas Campout</h3>
         <h3 class="text-3xl">Location TBA</h3>
       </div>
     </article>
+    <DonationDialog client:load />
   </SectionWrapper>
 </BaseLayout>
 
@@ -206,3 +229,18 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
     }
   }
 </style>
+
+<script>
+  import { isDonationModelOpen } from "@/store";
+  function openDonationDialog() {
+    isDonationModelOpen.set(true);
+  }
+
+  const donationModalTriggers = document.querySelectorAll(
+    '[data-trigger="donationModal"]'
+  );
+
+  donationModalTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", openDonationDialog);
+  });
+</script>

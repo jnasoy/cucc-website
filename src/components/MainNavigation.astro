@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { Link } from "@/components/Link";
+
 import cuccLogo from "@/assets/CUCC Wordmark Logo - Optimized.png";
 const currentPath = Astro.url.pathname.split("/")[1];
 const navigationLinks = [
@@ -49,7 +51,12 @@ const navigationLinks = [
         }
       </ul>
     </div>
-    <span>CTA Here</span>
+    <Link
+      className="rounded-full text-brand-color hover:bg-brand-color hover:text-white border-brand-color text-base transition-colors"
+      variant="outline"
+      href="https://fb.me/g/4ejRr1Tj0/IVZL5tGc"
+      target="_blank">Join Group</Link
+    >
   </nav>
 </header>
 
