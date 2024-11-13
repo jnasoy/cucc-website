@@ -16,6 +16,7 @@ export default {
 			},
 			colors:{
 				'brand-color': '#FDA214',
+				'brand-color-darker': '#EE8910'
 			}
 		},
 	},

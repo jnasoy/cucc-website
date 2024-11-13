@@ -149,26 +149,45 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
   <SectionWrapper
     fullBleed
     style={`background-image: url(${missionariesOfThePoor.src})`}
-    class="relative bg-brand-color bg-cover bg-fixed bg-center bg-no-repeat py-24 bg-blend-overlay"
+    class="relative bg-brand-color-darker bg-cover bg-center bg-no-repeat py-24 bg-blend-soft-light"
   >
     <article
-      class="inner-content-wrapper flex flex-col gap-8 text-center text-white"
+      class="inner-content-wrapper flex flex-col gap-10 text-center text-white"
     >
-      <h5>2024 beneficiary</h5>
-      <div class="font-serif">
-        <h2>Missionaries of the Poor</h2>
+      <h5 class="text-xl uppercase text-yellow-100 font-bold">
+        2024 beneficiary
+      </h5>
+      <div class="font-serif [&>h3]:text-3xl space-y-2">
+        <h2 class="text-6xl uppercase">Missionaries of the Poor</h2>
         <h3>December 7, 2024 | 9:00 AM - 11:00 AM</h3>
         <h3>Talisay City, Cebu</h3>
       </div>
-      <p>
-        This season, we're coming together to support some of the most
-        vulnerable members of our community: our elderlies.
-      </p>
+      <div class="text-xl mx-auto max-w-[55ch] space-y-4 [&>p]:text-pretty">
+        <p>
+          This season, we're coming together to support some of the most
+          vulnerable members of our community: our elderlies.
+        </p>
 
-      <p>
-        Let's show them they're not forgotten. Together, we can make a
-        difference by offering warmth, care, and dignity to our seniors in need.
-      </p>
+        <p>
+          Let's show them they're not forgotten. Together, we can make a
+          difference by offering warmth, care, and dignity to our seniors in
+          need.
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>CTA Here</li>
+          <li>Another CTA Here</li>
+        </ul>
+      </div>
+      <hr class="h-1 border-none w-[20%] mx-auto bg-yellow-400" />
+      <h5 class="text-xl uppercase font-bold text-yellow-100">
+        After the outreach
+      </h5>
+      <div class="font-serif space-y-2">
+        <h3 class="text-5xl">Christmas Campout</h3>
+        <h3 class="text-3xl">Location TBA</h3>
+      </div>
     </article>
   </SectionWrapper>
 </BaseLayout>
