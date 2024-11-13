@@ -24,7 +24,7 @@ export function DonationDialog() {
           </section>
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSf4WVN87xseZMfrucxOOh__zTXQhYhDuCBNyMwXuAB1fgyRrQ/viewform?embedded=true"
-            className="w-full h-full block"
+            className="w-full h-full"
             width="640"
             height="1667"
             onLoad={() => setLoading(false)}
