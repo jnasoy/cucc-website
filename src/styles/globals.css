@@ -17,6 +17,9 @@
 
   --page-dw: min(90vw, 1280px);
   --inner-page-padding-x: 2rem;
+  --header-height: 67px;
+  --header-py: 2rem;
+  --header-added-height: calc(var(--header-py)*2);
 }
 html {
   @apply font-sans;

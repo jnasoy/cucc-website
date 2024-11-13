@@ -10,12 +10,13 @@ const navigationLinks = [
 ];
 ---
 
-<nav
-  class="shadow-md bg-white px-6 py-4 max-w-[calc(var(--page-dw)-4rem)] mx-auto rounded-full fixed top-10 left-0 right-0 z-50 mx"
+<header
+  class="mx fixed left-0 right-0 top-[var(--header-py)] z-50 mx-auto max-w-[calc(var(--page-dw)-4rem)] rounded-full bg-white px-6 py-4 shadow-md"
+  id="header"
 >
   <span class="sr-only">Cebu United Car Campers Official Website</span>
-  <section class="flex justify-between items-center">
-    <div class="flex gap-x-12 items-center">
+  <nav class="flex items-center justify-between">
+    <div class="flex items-center gap-x-12">
       <a href="/" class="text-2xl font-bold">
         <Image
           src={cuccLogo}
@@ -49,8 +50,8 @@ const navigationLinks = [
       </ul>
     </div>
     <span>CTA Here</span>
-  </section>
-</nav>
+  </nav>
+</header>
 
 <style>
   li:has(a:is(:hover, :focus-visible)) {
@@ -67,3 +68,16 @@ const navigationLinks = [
     @apply rounded-full bg-brand-color transition-all;
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.getElementById("header");
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${headerHeight}px`
+      );
+    }
+  });
+</script>

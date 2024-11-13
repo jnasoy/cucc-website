@@ -6,6 +6,7 @@ import { imageConfig, Picture } from "astro:assets";
 
 import heroBanner from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
 import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
+import missionariesOfThePoor from "@/assets/missionaries-of-the-poor.jpg";
 
 type AboutSectionImageProps = {
   path: string;
@@ -49,6 +50,7 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
 ---
 
 <BaseLayout title="Cucc Outreach">
+  <!-- Hero section -->
   <SectionWrapper fullBleed>
     <article class="hero-wrapper">
       <Picture
@@ -58,7 +60,9 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
         loading="eager"
         formats={["avif", "webp"]}
       />
-      <div class="inner-content-wrapper hero-main-content space-y-14 py-10">
+      <div
+        class="inner-content-wrapper hero-main-content space-y-14 pb-10 pt-[calc(var(--header-height)+var(--header-added-height))]"
+      >
         <div class="space-y-3">
           <h1 class="font-serif text-brand-color ~text-7xl/9xl">
             Unity in Action
@@ -75,9 +79,10 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
       </div>
     </article>
   </SectionWrapper>
+  <!-- About section -->
   <SectionWrapper
     style={`background-image: url(${snowStarPatter.src})`}
-    class="bg-cover bg-fixed bg-center bg-no-repeat py-24"
+    class="bg-contain bg-fixed bg-center py-24"
     fullBleed
   >
     <article class="inner-content-wrapper flex gap-8">
@@ -111,29 +116,59 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
           next outreach.
         </p>
       </div>
-      <ul class="grid flex-1 grid-cols-2 gap-8">
-        {
-          groupedAboutSectionImages.map((imageGroup) => {
-            return (
-              <li class="even:mt-14">
-                <ul class="flex flex-col gap-8">
-                  {imageGroup.map((imageMeta) => {
-                    return (
-                      <li>
-                        <ImageCard
-                          alt={imageMeta.alt}
-                          imagePath={imageMeta.path}
-                          aspect={imageMeta.aspect}
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          })
-        }
-      </ul>
+      <div class="flex-1">
+        <ul
+          class="sticky top-[calc(var(--header-height)+var(--header-added-height))] grid grid-cols-2 gap-8"
+        >
+          {
+            groupedAboutSectionImages.map((imageGroup) => {
+              return (
+                <li class="even:mt-14">
+                  <ul class="flex flex-col gap-8">
+                    {imageGroup.map((imageMeta) => {
+                      return (
+                        <li>
+                          <ImageCard
+                            alt={imageMeta.alt}
+                            imagePath={imageMeta.path}
+                            aspect={imageMeta.aspect}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
+    </article>
+  </SectionWrapper>
+  <!-- This year beneficiary section -->
+  <SectionWrapper
+    fullBleed
+    style={`background-image: url(${missionariesOfThePoor.src})`}
+    class="relative bg-brand-color bg-cover bg-fixed bg-center bg-no-repeat py-24 bg-blend-overlay"
+  >
+    <article
+      class="inner-content-wrapper flex flex-col gap-8 text-center text-white"
+    >
+      <h5>2024 beneficiary</h5>
+      <div class="font-serif">
+        <h2>Missionaries of the Poor</h2>
+        <h3>December 7, 2024 | 9:00 AM - 11:00 AM</h3>
+        <h3>Talisay City, Cebu</h3>
+      </div>
+      <p>
+        This season, we're coming together to support some of the most
+        vulnerable members of our community: our elderlies.
+      </p>
+
+      <p>
+        Let's show them they're not forgotten. Together, we can make a
+        difference by offering warmth, care, and dignity to our seniors in need.
+      </p>
     </article>
   </SectionWrapper>
 </BaseLayout>
