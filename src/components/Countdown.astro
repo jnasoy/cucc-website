@@ -1,0 +1,54 @@
+---
+interface Props {
+  date: Date;
+}
+const { date } = Astro.props;
+---
+
+<div
+  id="countdown"
+  class="flex justify-center space-x-4"
+  data-end-date={date.toISOString()}
+>
+</div>
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const countdownContainer = document.getElementById("countdown");
+    const endDate = new Date(countdownContainer.dataset.endDate).getTime();
+
+    function formatTime(time) {
+      const days = Math.floor(time / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((time % (1000 * 60)) / 1000);
+      return { days, hours, minutes, seconds };
+    }
+
+    function createCountdownElement(value, label) {
+      return `
+        <div class="countdown-item text-center">
+          <div class="countdown-value text-xl font-medium text-slate-500">${value}</div>
+          <div class="countdown-label text-base text-brand-color">${label}</div>
+        </div>
+      `;
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const remainingTime = Math.max(0, endDate - now);
+      const { days, hours, minutes, seconds } = formatTime(remainingTime);
+
+      countdownContainer.innerHTML =
+        remainingTime > 0
+          ? createCountdownElement(days, "Days") +
+            createCountdownElement(hours, "Hours") +
+            createCountdownElement(minutes, "Minutes") +
+            createCountdownElement(seconds, "Seconds")
+          : `<div class="text-center"><div class="text-xl font-bold">Event has ended!</div></div>`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  });
+</script>

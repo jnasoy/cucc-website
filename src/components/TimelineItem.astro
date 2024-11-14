@@ -1,0 +1,107 @@
+---
+import { Link } from "@/components/Link";
+import { ExternalLink } from "lucide-react";
+import Countdown from "@/components/Countdown.astro";
+import ImageCard from "./ImageCard.astro";
+
+import type { BasicImageMeta } from "@/types";
+
+interface Props {
+  name: string;
+  location: string;
+  videoEmbedUrl?: string | null;
+  isDoneEvent: boolean;
+  photoAlbumUrl?: string | null;
+  eventDate: Date;
+  previewPhotos?: BasicImageMeta[] | null;
+}
+
+const {
+  name,
+  location,
+  videoEmbedUrl,
+  isDoneEvent,
+  photoAlbumUrl,
+  previewPhotos,
+  eventDate,
+} = Astro.props;
+
+const formattedDate = eventDate.toLocaleDateString("en-PH", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<div class="space-y-12 pb-16">
+  <section class="space-y-2">
+    <h3 class="font-serif text-2xl text-slate-700">{name}</h3>
+    <p class="font-serif text-xl text-slate-500">{location}</p>
+  </section>
+  {
+    isDoneEvent ? (
+      <section class="flex flex-col gap-8">
+        {videoEmbedUrl && (
+          <div class="space-y-4">
+            <h4 class="text-base uppercase text-slate-500">Video Montage</h4>
+            <iframe
+              class="aspect-video w-full"
+              src={videoEmbedUrl}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            />
+          </div>
+        )}
+        {photoAlbumUrl && previewPhotos && (
+          <div class="flex flex-col gap-4">
+            <h4 class="text-base uppercase text-slate-500">Event Snaps</h4>
+            <ul class="flex flex-wrap justify-between gap-8">
+              {previewPhotos.map((photo, index) => {
+                const isLast = index === previewPhotos.length - 1;
+                if (isLast) {
+                  return (
+                    <li class="w-[calc((100%/4)-1.5rem)] grid [&>*]:col-start-1 [&>*]:row-start-1">
+                      <ImageCard
+                        alt={photo.alt}
+                        imagePath={photo.path}
+                        aspect={photo.aspect}
+                      />
+                      <div class="grid aspect-square place-content-center rounded-xl bg-slate-900 bg-opacity-50 text-center transition-all hover:bg-opacity-80">
+                        <Link
+                          href={photoAlbumUrl}
+                          variant="ghost"
+                          className=" text-white hover:text-slate-50 self-end"
+                          target="_blank"
+                        >
+                          View all photos <ExternalLink />
+                        </Link>
+                      </div>
+                    </li>
+                  );
+                }
+                return (
+                  <li class="w-[calc((100%/4)-1.5rem)]">
+                    <ImageCard
+                      alt={photo.alt}
+                      imagePath={photo.path}
+                      aspect={photo.aspect}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+      </section>
+    ) : (
+      <section class="flex flex-col items-center gap-4 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6">
+        <p class="text-xl font-semibold text-slate-500">
+          Upcoming Outreach | {formattedDate}
+        </p>
+        <Countdown date={eventDate} />
+      </section>
+    )
+  }
+</div>

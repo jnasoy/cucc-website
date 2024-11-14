@@ -1,0 +1,106 @@
+---
+import TimelineItem from "./TimelineItem.astro";
+import { CircleDot, Circle } from "lucide-react";
+
+import type { OutreachEvent } from "@/types";
+
+const outreachEvents: OutreachEvent[] = [
+  {
+    year: "2024",
+    name: "Missionaries of the Poor",
+    location: "Talisay City, Cebu",
+    isDoneEvent: false,
+    eventDate: new Date("December 7, 2024"),
+    videoEmbedUrl: null,
+    photoAlbumUrl: null,
+    previewPhotos: null,
+  },
+  {
+    year: "2023",
+    name: "Kang-Atis Elementary School",
+    location: "Lusaran, Cebu",
+    isDoneEvent: true,
+    eventDate: new Date("December 2, 2023"),
+    videoEmbedUrl:
+      "https://www.youtube.com/embed/kYKn7KD4V7E?si=HKJvXv460jIOZuBT&controls=0",
+    photoAlbumUrl:
+      "https://www.facebook.com/media/set/?set=a.264136350000523&type=3",
+    previewPhotos: [
+      {
+        path: "/src/assets/2023-event-snap-1.jpg",
+        alt: "Student holding the used clothes gift",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-2.jpg",
+        alt: "A group of happy and smiling students holding the event tarp",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-3.jpg",
+        alt: "Student holding a food pack",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-4.jpg",
+        alt: "School supplies",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-1.jpg",
+        alt: "Student holding the used clothes gift",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-2.jpg",
+        alt: "A group of happy and smiling students holding the event tarp",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-3.jpg",
+        alt: "Student holding a food pack",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2023-event-snap-3.jpg",
+        alt: "Student holding a food pack",
+        aspect: "square",
+      },
+    ],
+  },
+];
+---
+
+<ul class="flex flex-col">
+  {
+    outreachEvents.map((event, index) => {
+      return (
+        <li class="grid grid-cols-timeline align-baseline">
+          <span class="sticky top-[calc(var(--header-height)+var(--header-added-height))] block h-auto self-baseline font-serif text-xl text-slate-700">
+            {event.year}
+          </span>
+          <div class="flex flex-col items-center ~px-5/10">
+            <span class="text-brand-color">
+              {event.isDoneEvent ? <CircleDot /> : <CircleDot />}
+            </span>
+            <hr class="-z-10 w-[2px] flex-1 bg-slate-400" />
+            {index === outreachEvents.length - 1 && (
+              <span class="text-brand-color">
+                <Circle fill="#FDA214" />
+              </span>
+            )}
+          </div>
+          <TimelineItem
+            name={event.name}
+            location={event.location}
+            isDoneEvent={event.isDoneEvent}
+            eventDate={event.eventDate}
+            videoEmbedUrl={event.videoEmbedUrl}
+            photoAlbumUrl={event.photoAlbumUrl}
+            previewPhotos={event.previewPhotos}
+          />
+        </li>
+      );
+    })
+  }
+</ul>

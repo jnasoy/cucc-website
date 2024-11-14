@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
 import ImageCard from "@/components/ImageCard.astro";
+import Timeline from "@/components/Timeline.astro";
 import { Picture } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
@@ -9,17 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/Link";
 import { DonationDialog } from "@/components/DonationDialog";
 
+import type { BasicImageMeta } from "@/types";
+
 import heroBanner from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
 import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
 import missionariesOfThePoor from "@/assets/missionaries-of-the-poor.jpg";
 
-type AboutSectionImageProps = {
-  path: string;
-  alt: string;
-  aspect: "square" | "video";
-};
-
-const aboutSectionImages: AboutSectionImageProps[] = [
+const aboutSectionImages: BasicImageMeta[] = [
   {
     path: "/src/assets/2023-event-snap-1.jpg",
     alt: "Student holding the used clothes gift",
@@ -42,16 +39,17 @@ const aboutSectionImages: AboutSectionImageProps[] = [
   },
 ];
 
-const groupedAboutSectionImages = aboutSectionImages.reduce<
-  AboutSectionImageProps[][]
->((result, item, index) => {
-  const groupIndex = Math.floor(index / 2);
-  if (!result[groupIndex]) {
-    result[groupIndex] = []; // Start a new group
-  }
-  result[groupIndex].push(item);
-  return result;
-}, []);
+const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
+  (result, item, index) => {
+    const groupIndex = Math.floor(index / 2);
+    if (!result[groupIndex]) {
+      result[groupIndex] = []; // Start a new group
+    }
+    result[groupIndex].push(item);
+    return result;
+  },
+  []
+);
 ---
 
 <BaseLayout title="Cucc Outreach">
@@ -120,9 +118,10 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
           spirit of giving and community engagement.
         </p>
         <p>
-          Everyone is welcome to support this initiative by <a
-            class="text-brand-color underline"
-            href="/">donating</a
+          Everyone is welcome to support this initiative by <Button
+            className="text-brand-color underline inline-block p-0 text-xl"
+            data-trigger="donationModal"
+            variant="link">donating</Button
           > and/or <a class="text-brand-color underline" href="/">joining</a> our
           next outreach.
         </p>
@@ -186,7 +185,7 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
         </p>
       </div>
       <div>
-        <ul class="flex gap-x-4 justify-center">
+        <ul class="flex justify-center gap-x-4">
           <li>
             <Button
               className="rounded-full bg-white text-brand-color text-base px-8 py-6 transition-colors uppercase font-bold hover:bg-yellow-100 hover:text-brand-color-darker"
@@ -210,6 +209,26 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<
         <h3 class="text-5xl">Christmas Campout</h3>
         <h3 class="text-3xl">Location TBA</h3>
       </div>
+    </article>
+  </SectionWrapper>
+  <!-- All beneficiaries section -->
+  <SectionWrapper class="py-24">
+    <article class="flex flex-col gap-20 px-40">
+      <h2 class="text-center font-serif text-6xl text-slate-900">
+        All Beneficiaries
+      </h2>
+      <Timeline />
+    </article>
+  </SectionWrapper>
+  <SectionWrapper fullBleed class="bg-slate-800">
+    <article class="inner-content-wrapper py-8 text-center">
+      <p class="font-serif text-white">
+        Designed & Developed by <a
+          href="https://www.facebook.com/keicarcamper"
+          target="_blank"
+          class="text-brand-color underline">Kei Car Camper</a
+        >
+      </p>
     </article>
   </SectionWrapper>
   <DonationDialog client:load />
