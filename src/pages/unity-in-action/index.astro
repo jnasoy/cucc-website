@@ -9,6 +9,7 @@ import { Icon } from "astro-icon/components";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/Link";
 import { DonationDialog } from "@/components/DonationDialog";
+import { FAQ } from "@/components/FAQ";
 
 import type { BasicImageMeta } from "@/types";
 
@@ -236,6 +237,16 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
         All Beneficiaries
       </h2>
       <Timeline />
+    </article>
+  </SectionWrapper>
+
+  <!-- FAQ section -->
+  <SectionWrapper class="~py-16/24">
+    <article class="flex flex-col gap-20 ~md/lg:~px-0/40">
+      <h2 class="h2-heading-sizing text-center font-serif text-slate-900">
+        Frequently Asked Questions
+      </h2>
+      <FAQ client:load />
     </article>
   </SectionWrapper>
 
