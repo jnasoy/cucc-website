@@ -43,11 +43,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ currentPath }) => {
       <DrawerContent className="max-h-[60svh] p-0">
         <section className="overflow-auto p-6">
           <ul className="flex flex-col space-y-3">
-            {siteConfig.mainNav.map((link) => {
+            {siteConfig.mainNav.map((link, index) => {
               const linkPath = link.path.split("/")[1];
               const isCurrentPath = currentPath === linkPath;
               return (
-                <li>
+                <li key={index}>
                   <Link
                     variant="ghost"
                     className={`
