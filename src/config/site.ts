@@ -1,11 +1,16 @@
-import type { MainNavItem } from "@/types";
+import type { MainNavItem, SiteMeta } from "@/types";
 
 export interface SiteConfig {
+  meta: SiteMeta,
   mainNav: MainNavItem[]
 }
 
 
 export const siteConfig:SiteConfig = {
+  meta:{
+    title: "Cebu United Car Campers",
+    description: "Engage with local campers, share your experiences, and explore top camping spots in Cebu City. Friendly, supportive community.",
+  },
   mainNav: [
     {slug:"trade-fair-campout", name: "Trade Fair Campout", path: "/trade-fair-campout",},
     {slug:"campfire-chronicles", name: "Campfire Chronicles", path: "/campfire-chronicles",},

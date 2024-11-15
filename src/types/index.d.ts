@@ -1,6 +1,11 @@
 import type { ReactElement } from "react";
 
 export type NavLinkKey = "trade-fair-campout" | "campfire-chronicles" | "unity-in-action" | "about-us";
+
+export interface SiteMeta {
+  title: string;
+  description?: string;
+}
 export interface MainNavItem {
   slug: NavLinkKey;
   name: string;
