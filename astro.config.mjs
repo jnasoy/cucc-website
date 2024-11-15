@@ -10,10 +10,12 @@ import react from '@astrojs/react';
 
 import sitemap from '@astrojs/sitemap';
 
+import serviceWorker from "astrojs-service-worker";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cucc.site',
   integrations: [tailwind({
     applyBaseStyles:false,
-  }), lottie(), icon(), react(), sitemap()]
+  }), lottie(), icon(), react(), sitemap(), serviceWorker()]
 });
