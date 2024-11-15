@@ -1,8 +1,10 @@
 ---
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 import SEOHead from "@/components/SEOHead.astro";
 const { title, description } = Astro.props;
 ---
 
 <SEOHead title={title} description={description} />
+<Analytics />
 <SpeedInsights />
