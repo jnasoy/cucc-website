@@ -1,8 +1,9 @@
 ---
 import { Link } from "@/components/Link";
-import { ExternalLink } from "lucide-react";
 import Countdown from "@/components/Countdown.astro";
 import ImageCard from "./ImageCard.astro";
+
+import { Video, Images } from "lucide-react";
 
 import type { BasicImageMeta } from "@/types";
 
@@ -33,17 +34,19 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
 });
 ---
 
-<div class="space-y-12 pb-16">
+<div class="pb-16 ~space-y-8/12">
   <section class="space-y-2">
-    <h3 class="font-serif text-2xl text-slate-700">{name}</h3>
-    <p class="font-serif text-xl text-slate-500">{location}</p>
+    <h4 class="h4-heading-sizing font-serif text-slate-700">{name}</h4>
+    <h5 class="h5-heading-sizing font-serif text-slate-500">{location}</h5>
   </section>
   {
     isDoneEvent ? (
       <section class="flex flex-col gap-8">
         {videoEmbedUrl && (
           <div class="space-y-4">
-            <h4 class="text-base uppercase text-slate-500">Video Montage</h4>
+            <h4 class="flex items-center gap-2 font-semibold text-slate-400 ~text-xs/base">
+              <Video /> Video Montage
+            </h4>
             <iframe
               class="aspect-video w-full"
               src={videoEmbedUrl}
@@ -56,13 +59,15 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
         )}
         {photoAlbumUrl && previewPhotos && (
           <div class="flex flex-col gap-4">
-            <h4 class="text-base uppercase text-slate-500">Event Snaps</h4>
-            <ul class="flex flex-wrap justify-between gap-8">
+            <h4 class="flex items-center gap-2 font-semibold text-slate-400 ~text-xs/base">
+              <Images /> Event Snaps
+            </h4>
+            <ul class="flex flex-wrap justify-between gap-4 md:gap-8">
               {previewPhotos.map((photo, index) => {
                 const isLast = index === previewPhotos.length - 1;
                 if (isLast) {
                   return (
-                    <li class="w-[calc((100%/4)-1.5rem)] grid [&>*]:col-start-1 [&>*]:row-start-1">
+                    <li class="w-[calc((100%/2)-0.5rem)] md:w-[calc((100%/4)-1.5rem)] grid [&>*]:col-start-1 [&>*]:row-start-1">
                       <ImageCard
                         alt={photo.alt}
                         imagePath={photo.path}
@@ -72,17 +77,17 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
                         <Link
                           href={photoAlbumUrl}
                           variant="ghost"
-                          className=" text-white hover:text-slate-50 self-end"
+                          className=" text-white hover:text-slate-50 self-end p-0"
                           target="_blank"
                         >
-                          View all photos <ExternalLink />
+                          View all photos
                         </Link>
                       </div>
                     </li>
                   );
                 }
                 return (
-                  <li class="w-[calc((100%/4)-1.5rem)]">
+                  <li class="w-[calc((100%/2)-0.5rem)] md:w-[calc((100%/4)-1.5rem)]">
                     <ImageCard
                       alt={photo.alt}
                       imagePath={photo.path}
@@ -96,10 +101,14 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
         )}
       </section>
     ) : (
-      <section class="flex flex-col items-center gap-4 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6">
-        <p class="text-xl font-semibold text-slate-500">
-          Upcoming Outreach | {formattedDate}
-        </p>
+      <section class="flex flex-col items-start gap-4 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 sm:items-center">
+        <h5 class="h5-heading-sizing font-semibold text-slate-500">
+          Upcoming Outreach
+          <i class="hidden px-2 not-italic sm:inline-block"> | </i>
+          <span class="block text-slate-400 sm:inline-block sm:text-inherit">
+            {formattedDate}
+          </span>
+        </h5>
         <Countdown date={eventDate} />
       </section>
     )

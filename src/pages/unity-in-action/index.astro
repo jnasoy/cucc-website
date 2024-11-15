@@ -64,17 +64,17 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
         formats={["avif", "webp"]}
       />
       <div
-        class="inner-content-wrapper hero-main-content space-y-14 pb-10 pt-[calc(var(--header-height)+var(--header-added-height))]"
+        class="inner-content-wrapper hero-main-content space-y-14 pt-[calc(var(--header-height)+var(--header-added-height))] ~pb-16/24"
       >
         <div class="space-y-3">
-          <h1 class="font-serif text-brand-color ~text-7xl/9xl">
+          <h1 class="h1-heading-sizing font-serif text-brand-color">
             Unity in Action
           </h1>
-          <h2 class="font-serif text-4xl text-white">
+          <h2 class="h2-heading-sizing font-serif text-white">
             United in Service, Inspiring Change
           </h2>
         </div>
-        <p class="mx-auto max-w-[45ch] text-xl text-white">
+        <p class="p-md-sizing mx-auto max-w-[45ch] text-white">
           An annual Christmas season community outreach event organized by Cebu
           United Car Campers
         </p>
@@ -91,14 +91,20 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
   <!-- About section -->
   <SectionWrapper
     style={`background-image: url(${snowStarPatter.src})`}
-    class="bg-contain bg-fixed bg-center py-24"
+    class="bg-contain bg-fixed bg-center ~py-16/24"
     fullBleed
   >
-    <article class="inner-content-wrapper flex gap-8">
-      <div class="space-y-6 [&>p]:text-slate-600 [&>p]:text-xl flex-1">
-        <h1 class="mb-9 text-balance font-serif text-6xl text-slate-700">
+    <article
+      class="inner-content-wrapper flex flex-col gap-16 text-center md:flex-row md:gap-8 md:text-left"
+    >
+      <div
+        class="space-y-6 [&_p]:text-slate-600 [&_p]:p-md-sizing flex-1 [&>p]:text-pretty"
+      >
+        <h2
+          class="h2-heading-sizing mb-9 text-balance font-serif text-slate-700"
+        >
           Spreading Holiday Cheer Together
-        </h1>
+        </h2>
         <p>
           The "<span class="font-bold text-brand-color">Unity in Action</span>"
           event is our annual community outreach initiative held every December.
@@ -119,22 +125,25 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
         </p>
         <p>
           Everyone is welcome to support this initiative by <Button
-            className="text-brand-color underline inline-block p-0 text-xl"
+            className="text-brand-color underline inline-block p-0 p-md-sizing"
             data-trigger="donationModal"
             variant="link">donating</Button
-          > and/or <a class="text-brand-color underline" href="/">joining</a> our
-          next outreach.
+          > and/or <a
+            class="text-brand-color underline"
+            href="https://m.me/cebuunitedcarcampers"
+            target="_blank">joining</a
+          > our next outreach.
         </p>
       </div>
       <div class="flex-1">
         <ul
-          class="sticky top-[calc(var(--header-height)+var(--header-added-height))] grid grid-cols-2 gap-8"
+          class="sticky top-[calc(var(--header-height)+var(--header-added-height))] grid grid-cols-2 ~gap-6/8"
         >
           {
             groupedAboutSectionImages.map((imageGroup) => {
               return (
-                <li class="even:mt-14">
-                  <ul class="flex flex-col gap-8">
+                <li class="even:~mt-10/14">
+                  <ul class="flex flex-col ~gap-6/8">
                     {imageGroup.map((imageMeta) => {
                       return (
                         <li>
@@ -159,20 +168,20 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
   <SectionWrapper
     fullBleed
     style={`background-image: url(${missionariesOfThePoor.src})`}
-    class="relative bg-brand-color-darker bg-cover bg-center bg-no-repeat py-24 bg-blend-soft-light"
+    class="relative bg-brand-color-darker bg-cover bg-center bg-no-repeat bg-blend-soft-light ~py-16/24"
   >
     <article
       class="inner-content-wrapper flex flex-col gap-10 text-center text-white"
     >
-      <h5 class="text-xl font-bold uppercase text-yellow-100">
+      <h5 class="h5-heading-sizing font-bold uppercase text-yellow-100">
         2024 beneficiary
       </h5>
-      <div class="font-serif [&>h3]:text-3xl space-y-2">
-        <h2 class="text-6xl uppercase">Missionaries of the Poor</h2>
-        <h3>December 7, 2024 | 9:00 AM - 11:00 AM</h3>
+      <div class="font-serif [&>h3]:h3-heading-sizing space-y-2">
+        <h2 class="h2-heading-sizing uppercase">Missionaries of the Poor</h2>
+        <h3>December 7, 2024 | 9:00 AM</h3>
         <h3>Talisay City, Cebu</h3>
       </div>
-      <div class="text-xl mx-auto max-w-[55ch] space-y-4 [&>p]:text-pretty">
+      <div class="p-md-sizing mx-auto max-w-[55ch] space-y-4 [&>p]:text-pretty">
         <p>
           This season, we're coming together to support some of the most
           vulnerable members of our community: our elderlies.
@@ -185,7 +194,7 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
         </p>
       </div>
       <div>
-        <ul class="flex justify-center gap-x-4">
+        <ul class="flex flex-col items-center justify-center gap-4 md:flex-row">
           <li>
             <Button
               className="rounded-full bg-white text-brand-color text-base px-8 py-6 transition-colors uppercase font-bold hover:bg-yellow-100 hover:text-brand-color-darker"
@@ -196,40 +205,41 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
             <Link
               variant="outline"
               className="border-white text-white bg-transparent rounded-full text-base px-8 py-6 transition-colors uppercase font-bold hover:border-yellow-100 hover:text-yellow-100"
-              href="/">Join the event</Link
+              href="https://m.me/cebuunitedcarcampers"
+              target="_blank">Join the event</Link
             >
           </li>
         </ul>
       </div>
       <hr class="mx-auto h-1 w-[20%] border-none bg-yellow-400" />
-      <h5 class="text-xl font-bold uppercase text-yellow-100">
+      <h5 class="h5-heading-sizing font-bold uppercase text-yellow-100">
         After the outreach
       </h5>
       <div class="space-y-2 font-serif">
-        <h3 class="text-5xl">Christmas Campout</h3>
-        <h3 class="text-3xl">Location TBA</h3>
+        <h3 class="h3-md-heading-sizing">Christmas Campout</h3>
+        <h3 class="h3-heading-sizing">Location TBA</h3>
       </div>
     </article>
   </SectionWrapper>
   <!-- All beneficiaries section -->
-  <SectionWrapper class="py-24">
-    <article class="flex flex-col gap-20 px-40">
-      <h2 class="text-center font-serif text-6xl text-slate-900">
+  <SectionWrapper class="~py-16/24">
+    <article class="flex flex-col gap-20 ~md/lg:~px-0/40">
+      <h2 class="h2-heading-sizing text-center font-serif text-slate-900">
         All Beneficiaries
       </h2>
       <Timeline />
     </article>
   </SectionWrapper>
   <SectionWrapper fullBleed class="bg-slate-800">
-    <article class="inner-content-wrapper py-8 text-center">
-      <p class="font-serif text-white">
+    <footer class="inner-content-wrapper py-8 text-center">
+      <p class="text-balance font-serif text-white">
         Designed & Developed by <a
           href="https://www.facebook.com/keicarcamper"
           target="_blank"
           class="text-brand-color underline">Kei Car Camper</a
         >
       </p>
-    </article>
+    </footer>
   </SectionWrapper>
   <DonationDialog client:load />
 </BaseLayout>

@@ -16,10 +16,10 @@
   );
 
   --page-dw: min(90vw, 1280px);
-  --inner-page-padding-x: 2rem;
+  --inner-page-padding-x: clamp(1rem, 0.29rem + 1.79vw, 2rem);
   --header-height: 67px;
-  --header-py: 2rem;
-  --header-added-height: calc(var(--header-py)*2);
+  --header-py: clamp(1rem, 0.29rem + 1.79vw, 2rem);
+  --header-added-height: calc(var(--header-py) * 2);
 }
 html {
   @apply font-sans;
@@ -38,7 +38,28 @@ code {
 
 @layer utilities {
   .inner-content-wrapper {
-    @apply mx-auto max-w-[var(--page-dw)] px-[var(--inner-page-padding-x)];
+    @apply mx-auto max-w-[var(--page-dw)] px-0 md:px-[var(--inner-page-padding-x)];
+  }
+  .h1-heading-sizing {
+    @apply ~md/lg:~text-7xl/9xl;
+  }
+  .h2-heading-sizing {
+    @apply ~md/lg:~text-3xl/5xl;
+  }
+  .h3-heading-sizing {
+    @apply ~md/lg:~text-xl/3xl;
+  }
+  .h3-md-heading-sizing {
+    @apply ~md/lg:~text-2xl/4xl;
+  }
+  .h4-heading-sizing {
+    @apply ~md/lg:~text-base/2xl;
+  }
+  .h5-heading-sizing {
+    @apply ~md/lg:~text-sm/xl;
+  }
+  .p-md-sizing {
+    @apply ~text-lg/xl;
   }
 }
 

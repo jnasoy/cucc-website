@@ -29,8 +29,8 @@ const { date } = Astro.props;
     function createCountdownElement(value, label) {
       return `
         <div class="countdown-item text-center">
-          <div class="countdown-value text-xl font-medium text-slate-500">${value}</div>
-          <div class="countdown-label text-base text-brand-color">${label}</div>
+          <div class="countdown-value font-medium text-slate-500 ~text-base/xl">${value}</div>
+          <div class="countdown-label text-brand-color ~text-sm/base">${label}</div>
         </div>
       `;
     }

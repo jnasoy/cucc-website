@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
+import { Link } from "@/components/Link";
 ---
 
 <BaseLayout title="Cebu United Car Campers | Page under active development">
@@ -15,12 +16,12 @@ import SectionWrapper from "@/layouts/SectionWrapper.astro";
       <h1 class="font-serif text-2xl font-normal text-slate-800">
         I think you're lost
       </h1>
-      <a
+      <Link
         href="/"
-        class="block rounded-full bg-brand-color p-2 font-sans text-sm font-normal text-white"
+        className="block rounded-full bg-brand-color p-2 font-sans text-sm font-normal text-white hover:bg-brand-color-darker"
       >
         Navigate home
-      </a>
+      </Link>
     </article>
   </SectionWrapper>
 </BaseLayout>

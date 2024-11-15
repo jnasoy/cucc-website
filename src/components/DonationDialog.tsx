@@ -17,14 +17,14 @@ export function DonationDialog() {
 
   return (
     <Dialog onOpenChange={handleOpenChange} open={$isModalOpen}>
-      <DialogContent className="sm:max-w-[90%] w-[640px] h-[90dvh]">
+      <DialogContent className="h-[90dvh] w-[640px] max-w-[95%] rounded-md px-0">
         <div className="grid [&>*]:col-start-1 [&>*]:row-start-1">
           <section className="place-self-center">
-            {loading ? <Loader2 className="animate-spin mx-auto" /> : <></>}
+            {loading ? <Loader2 className="mx-auto animate-spin" /> : <></>}
           </section>
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSf4WVN87xseZMfrucxOOh__zTXQhYhDuCBNyMwXuAB1fgyRrQ/viewform?embedded=true"
-            className="w-full h-full"
+            className="h-full w-full"
             width="640"
             height="1667"
             onLoad={() => setLoading(false)}

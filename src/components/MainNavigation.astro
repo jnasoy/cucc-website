@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { Link } from "@/components/Link";
+import { MobileNav } from "@/components/MobileNav";
 
-import cuccLogo from "@/assets/CUCC Wordmark Logo - Optimized.png";
+import cuccLogo from "@/assets/cucc-wordmark-logo.svg?raw";
 const currentPath = Astro.url.pathname.split("/")[1];
 const navigationLinks = [
   { name: "Trade Fair Campout", path: "/trade-fair-campout" },
@@ -13,21 +13,16 @@ const navigationLinks = [
 ---
 
 <header
-  class="mx fixed left-0 right-0 top-[var(--header-py)] z-50 mx-auto max-w-[calc(var(--page-dw)-4rem)] rounded-full bg-white px-6 py-4 shadow-md"
+  class="fixed left-0 right-0 top-[var(--header-py)] z-50 mx-auto max-w-[var(--page-dw)] rounded-full bg-white px-6 py-4 shadow-md"
   id="header"
 >
   <span class="sr-only">Cebu United Car Campers Official Website</span>
   <nav class="flex items-center justify-between">
     <div class="flex items-center gap-x-12">
       <a href="/" class="text-2xl font-bold">
-        <Image
-          src={cuccLogo}
-          alt="Cebu United Car Campers Wordmark Logo"
-          width={88}
-          loading={"eager"}
-        />
+        <Fragment set:html={cuccLogo} />
       </a>
-      <ul class="flex items-center">
+      <ul class="hidden items-center lg:flex">
         {
           navigationLinks.map((link) => {
             const linkPath = link.path.split("/")[1];
@@ -51,12 +46,15 @@ const navigationLinks = [
         }
       </ul>
     </div>
-    <Link
-      className="rounded-full text-brand-color hover:bg-brand-color hover:text-white border-brand-color text-base transition-colors"
-      variant="outline"
-      href="https://fb.me/g/4ejRr1Tj0/IVZL5tGc"
-      target="_blank">Join Group</Link
-    >
+    <div class="flex gap-6">
+      <Link
+        className="rounded-full text-brand-color hover:bg-brand-color hover:text-white border-brand-color text-base transition-colors"
+        variant="outline"
+        href="https://fb.me/g/4ejRr1Tj0/IVZL5tGc"
+        target="_blank">Join Group</Link
+      >
+      <MobileNav currentPath={currentPath} client:load />
+    </div>
   </nav>
 </header>
 
