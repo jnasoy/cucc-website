@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseHead from "@/components/BaseHead.astro";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
 import { Link } from "@/components/Link";
 ---
 
 <BaseLayout>
+  <BaseHead slot="base-head" />
   <SectionWrapper class="place-self-center">
     <article class="space-y-6 text-center">
       <LottieAnimation

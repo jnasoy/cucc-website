@@ -13,8 +13,10 @@ import { DonationDialog } from "@/components/DonationDialog";
 import type { BasicImageMeta } from "@/types";
 
 import heroBanner from "@/assets/cucc-unity-in-action-cropped-optimized-smaller.jpg";
+import ogImage from "@/assets/cucc-unity-in-action-og-image.jpg";
 import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
 import missionariesOfThePoor from "@/assets/missionaries-of-the-poor.jpg";
+import BaseHead from "@/components/BaseHead.astro";
 
 const aboutSectionImages: BasicImageMeta[] = [
   {
@@ -53,6 +55,12 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
 ---
 
 <BaseLayout>
+  <BaseHead
+    title="Cebu United Car Campers | Unity in Action"
+    description="An annual Christmas season community outreach event organized by Cebu United Car Campers"
+    ogImage={ogImage}
+    slot="base-head"
+  />
   <!-- Hero section -->
   <SectionWrapper fullBleed>
     <article class="hero-wrapper">

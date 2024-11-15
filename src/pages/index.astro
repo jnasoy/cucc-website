@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseHead from "@/components/BaseHead.astro";
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
 import { Link } from "@/components/Link";
@@ -7,6 +8,7 @@ import { ArrowRight } from "lucide-react";
 ---
 
 <BaseLayout>
+  <BaseHead slot="base-head" />
   <SectionWrapper class="place-self-center">
     <LottieAnimation
       src="https://lottie.host/07a7f387-aa6d-4de1-94c0-b62f480ededf/zDBkThcK9Z.json"
