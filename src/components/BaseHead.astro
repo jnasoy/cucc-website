@@ -5,6 +5,11 @@ import SEOHead from "@/components/SEOHead.astro";
 const { title, description, ogImage } = Astro.props;
 ---
 
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="/cucc-favicon.svg" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="generators" content={Astro.generator} />
 <SEOHead title={title} description={description} image={ogImage} />
 <Analytics />
 <SpeedInsights />
