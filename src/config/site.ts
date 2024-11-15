@@ -8,7 +8,7 @@ export interface SiteConfig {
 
 export const siteConfig:SiteConfig = {
   meta:{
-    title: "Cebu United Car Campers",
+    title: "Cebu United Car Campers | Adventure and Friendship Starts Out There",
     description: "Engage with local campers, share your experiences, and explore top camping spots in Cebu City. Friendly, supportive community.",
   },
   mainNav: [
