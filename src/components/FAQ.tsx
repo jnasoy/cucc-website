@@ -20,7 +20,7 @@ const faqItems = [
   {
     question: "Can we donate in cash or goods?",
     answer:
-      'We accept both. If you prefer to donate cash, just click the "Make a Donation" button bove.If you prefer to donate goods, please <a class="text-brand-color underline transition-all hover:text-brand-color-darker" href="https://m.me/cebuunitedcarcampers" target="_blank">send us a message in our official Facebook page</a> for a list of what can be given to our chosen beneficiary as per the organization\'s rules and guidelines',
+      'We accept both. If you prefer to donate cash, just click the "Make a Donation" button above.If you prefer to donate goods, please <a class="text-brand-color underline transition-all hover:text-brand-color-darker" href="https://m.me/cebuunitedcarcampers" target="_blank">send us a message in our official Facebook page</a> for a list of what can be given to our chosen beneficiary as per the organization\'s rules and guidelines',
   },
   {
     question: "Do I need to be a part of CUCC to make a donation?",
