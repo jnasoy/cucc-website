@@ -27,3 +27,8 @@ export interface OutreachEvent {
   photoAlbumUrl?: string | null;
   previewPhotos?: BasicImageMeta[] | null;
 }
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}

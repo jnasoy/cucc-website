@@ -19,28 +19,7 @@ import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
 import missionariesOfThePoor from "@/assets/missionaries-of-the-poor.webp";
 import BaseHead from "@/components/BaseHead.astro";
 
-const aboutSectionImages: BasicImageMeta[] = [
-  {
-    path: "/src/assets/2023-event-snap-1.jpg",
-    alt: "Student holding the used clothes gift",
-    aspect: "square",
-  },
-  {
-    path: "/src/assets/2023-event-snap-2.jpg",
-    alt: "A group of happy and smiling students holding the event tarp",
-    aspect: "square",
-  },
-  {
-    path: "/src/assets/2023-event-snap-3.jpg",
-    alt: "Student holding a food pack",
-    aspect: "square",
-  },
-  {
-    path: "/src/assets/2023-event-snap-4.jpg",
-    alt: "School supplies",
-    aspect: "square",
-  },
-];
+import { aboutSectionImages } from "@/data";
 
 const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
   (result, item, index) => {
