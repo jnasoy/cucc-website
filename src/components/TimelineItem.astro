@@ -48,6 +48,7 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
               <Video /> Video Montage
             </h4>
             <iframe
+              loading="lazy"
               class="aspect-video w-full"
               src={videoEmbedUrl}
               title="YouTube video player"
