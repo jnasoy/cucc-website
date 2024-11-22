@@ -5,6 +5,7 @@ import ImageCard from "./ImageCard.astro";
 
 import { Video, Images } from "lucide-react";
 import { YouTube } from "astro-embed";
+import videPoster2023 from "@/assets/2023-video-montage-poster.webp";
 
 import type { BasicImageMeta } from "@/types";
 
@@ -48,7 +49,11 @@ const formattedDate = eventDate.toLocaleDateString("en-PH", {
             <h4 class="flex items-center gap-2 font-semibold text-slate-400 ~text-xs/base">
               <Video /> Video Montage
             </h4>
-            <YouTube id={videoEmbedUrl} />
+            <YouTube
+              id={videoEmbedUrl}
+              class="aspect-video w-full max-w-full rounded-sm"
+              poster={videPoster2023.src}
+            />
           </div>
         )}
         {photoAlbumUrl && previewPhotos && (
