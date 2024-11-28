@@ -20,6 +20,7 @@
   --header-height: 67px;
   --header-py: clamp(1rem, 0.29rem + 1.79vw, 2rem);
   --header-added-height: calc(var(--header-py) * 2);
+  --hero-extra-top-padding: 4vw;
 }
 html {
   @apply font-sans;
