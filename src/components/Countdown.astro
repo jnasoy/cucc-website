@@ -46,7 +46,7 @@ const { date } = Astro.props;
             createCountdownElement(hours, "Hours") +
             createCountdownElement(minutes, "Minutes") +
             createCountdownElement(seconds, "Seconds")
-          : `<div class="text-center"><div class="text-xl font-bold">Event has ended!</div></div>`;
+          : `<div class="text-center"><div class="text-xl font-bold">Event has ended! Photos will be uploaded soon.</div></div>`;
     }
 
     setInterval(updateCountdown, 1000);
