@@ -7,8 +7,8 @@ export const aboutSectionImages: BasicImageMeta[] = [
     aspect: "square",
   },
   {
-    path: "/src/assets/2023-event-snap-2.jpg",
-    alt: "A group of happy and smiling students holding the event tarp",
+    path: "/src/assets/2024-uia-event-snap-5.jpg",
+    alt: "A man carrying groceries",
     aspect: "square",
   },
   {
@@ -17,8 +17,8 @@ export const aboutSectionImages: BasicImageMeta[] = [
     aspect: "square",
   },
   {
-    path: "/src/assets/2023-event-snap-4.jpg",
-    alt: "School supplies",
+    path: "/src/assets/2024-uia-event-snap-2.jpg",
+    alt: "A woman standing in front of a group of people",
     aspect: "square",
   },
 ];
@@ -28,11 +28,52 @@ export const outreachEvents: OutreachEvent[] = [
     year: "2024",
     name: "Missionaries of the Poor",
     location: "Talisay City, Cebu",
-    isDoneEvent: false,
+    isDoneEvent: true,
     eventDate: new Date("December 7, 2024"),
     videoEmbedUrl: null,
-    photoAlbumUrl: null,
-    previewPhotos: null,
+    photoAlbumUrl: "https://facebook.com/share/p/1BZbcEJFCv/",
+    previewPhotos: [
+      {
+        path: "/src/assets/2024-uia-event-snap-1.jpg",
+        alt: "A group of people holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-2.jpg",
+        alt: "A group of people holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-3.jpg",
+        alt: "A group of people holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-4.jpg",
+        alt: "People holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-5.jpg",
+        alt: "People holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-6.jpg",
+        alt: "Group of people holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-7.jpg",
+        alt: "Group of people holding a banner",
+        aspect: "square",
+      },
+      {
+        path: "/src/assets/2024-uia-event-snap-8.jpg",
+        alt: "Person holding a banner",
+        aspect: "square",
+      },
+    ]
   },
   {
     year: "2023",
