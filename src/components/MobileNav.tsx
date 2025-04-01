@@ -11,12 +11,12 @@ import {
   FlameKindling,
   HeartHandshake,
   Tent,
-  Store,
+  Leaf,
 } from "lucide-react";
 
 function getNavLinkIcon(key: NavLinkKey): ReactElement {
   const icons = {
-    "trade-fair-campout": <Store />,
+    "camp-and-reflect": <Leaf />,
     "campfire-chronicles": <FlameKindling />,
     "unity-in-action": <HeartHandshake />,
     "about-us": <Tent />,

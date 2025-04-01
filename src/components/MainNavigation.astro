@@ -1,15 +1,10 @@
 ---
 import { Link } from "@/components/Link";
 import { MobileNav } from "@/components/MobileNav";
+import { siteConfig } from "@/config/site";
 
 import cuccLogo from "@/assets/cucc-wordmark-logo.svg?raw";
 const currentPath = Astro.url.pathname.split("/")[1];
-const navigationLinks = [
-  { name: "Trade Fair Campout", path: "/trade-fair-campout" },
-  { name: "Campfire Chronicles", path: "/campfire-chronicles" },
-  { name: "Unity In Action", path: "/unity-in-action" },
-  { name: "About Us", path: "/about-us" },
-];
 ---
 
 <header
@@ -25,7 +20,7 @@ const navigationLinks = [
       </a>
       <ul class="hidden items-center lg:flex">
         {
-          navigationLinks.map((link) => {
+          siteConfig.mainNav.map((link) => {
             const linkPath = link.path.split("/")[1];
             const isCurrentPath = currentPath === linkPath;
             return (
@@ -33,7 +28,7 @@ const navigationLinks = [
                 <a
                   href={link.path}
                   class:list={[
-                    "px-2 py-4",
+                    "p-4",
                     isCurrentPath
                       ? "text-brand-color"
                       : "text-slate-600 hover:text-slate-900",
