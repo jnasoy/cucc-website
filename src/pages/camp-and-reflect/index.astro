@@ -1,25 +1,162 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import BaseHead from "@/components/BaseHead.astro";
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 import SectionWrapper from "@/layouts/SectionWrapper.astro";
+import { FAQ } from "@/components/FAQ";
+import { campAndReflectfaqItems } from "@/data";
+import { Tooltips } from "astro-tooltips";
+
+import { Icon } from "astro-icon/components";
+import { Link } from "@/components/Link";
+import heroVideo from "@/assets/Camp And Reflect Hero Video (Optimized).mp4";
 ---
 
 <BaseLayout>
   <BaseHead slot="base-head" />
-  <SectionWrapper class="place-self-center">
-    <LottieAnimation
-      src="https://lottie.host/36a23853-f197-4d8d-b6b5-61a4ad2878d1/ZSjgNpKvRH.json"
-      autoplay="visible"
-      class="mx-auto w-40"
-    />
-    <article class="text-center">
-      <h1 class="font-serif text-2xl font-normal text-slate-800">
-        Almost There!
-      </h1>
-      <p class="text-slate-500">
-        This page is currently under active development
-      </p>
+  <Tooltips interactive={false} />
+  <!-- Hero section -->
+  <SectionWrapper fullBleed>
+    <article class="hero-wrapper">
+      <video class="h-lvh object-cover" muted src={heroVideo} autoplay loop
+      ></video>
+      <div
+        class="inner-content-wrapper hero-main-content z-10 space-y-14 pt-[calc(var(--header-height)+var(--header-added-height)+var(--hero-extra-top-padding))] ~pb-16/24"
+      >
+        <div class="space-y-3 *:font-serif">
+          <h1 class="h1-heading-sizing text-brand-color">Camp & Reflect</h1>
+          <h2 class="h2-heading-sizing text-white">A Lenten Campout</h2>
+        </div>
+        <Link
+          href="https://lu.ma/event/evt-5F9kyG4uw0xJhqW"
+          data-luma-action="checkout"
+          className="rounded-full bg-brand-color hover:bg-brand-color-darker text-base uppercase text-yellow-900 font-bold px-8 py-6 transition-colors"
+          data-luma-event-id="evt-5F9kyG4uw0xJhqW"
+        >
+          Register for 2025 Event
+        </Link>
+      </div>
+    </article>
+  </SectionWrapper>
+  <!-- Event Details -->
+  <SectionWrapper class="~pt-8/12">
+    <article class="inner-content-wrapper">
+      <ul
+        class="flex flex-col p-4 md:flex-row [&_li]:flex [&_li]:w-full [&_li]:items-center [&_li]:gap-4 [&_li]:border [&_li]:border-slate-300 [&_li]:p-4 md:[&_li]:w-1/2"
+      >
+        <li>
+          <Icon name="map" size={60} />
+          <h4>
+            <a
+              target="_blank"
+              title="Open location in Google Map"
+              class="transition-colors hover:text-brand-color"
+              href="https://www.google.com/maps/place/10%C2%B043'30.5%22N+123%C2%B048'42.3%22E/@10.7251333,123.8104645,511m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d10.7251333!4d123.811752?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D"
+              >10.725133299999992, 123.811752028836</a
+            >
+
+            <span class="block text-slate-400">Gerona Punta Beach, Tuburan</span
+            >
+          </h4>
+        </li>
+        <li>
+          <Icon name="compass-icon" size={60} />
+          <h4>
+            <a
+              target="_blank"
+              title="Add to Calendar"
+              class="transition-colors hover:text-brand-color"
+              href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=CUCC+Camp+%26+Reflect%3A+A+Lenten+Campout+2025&dates=20250417T000000Z/20250421T000000Z"
+              >04-17-2025 — 04-20-2025</a
+            >
+            <span class="block text-slate-400">April 17 - 20, 2025</span>
+          </h4>
+        </li>
+      </ul>
+    </article>
+  </SectionWrapper>
+  <!-- About section -->
+  <SectionWrapper class="bg-contain bg-fixed bg-center ~py-16/24" fullBleed>
+    <article
+      class="inner-content-wrapper flex flex-col gap-12 text-center md:flex-row md:gap-32 md:text-left"
+    >
+      <div class="prose prose-lg prose-slate md:w-1/2">
+        <p>
+          Take a step back from the busyness of life and embrace a time of <strong
+            >rest, solitude, and self-reflection</strong
+          > at <strong>CUCC Camp & Reflect: A Lenten Campout.</strong> This Holy
+          Week, immerse yourself in the peace of nature, allowing space for <strong
+            >quiet contemplation, personal growth, and renewal.</strong
+          >
+        </p>
+        <p>
+          ​This campout is designed as a <strong>gentle retreat</strong>, free
+          from distractions—no schedules, no pressure, just time to <srtong
+            >pause, breathe, and reconnect with yourself.</srtong
+          > Whether you choose to journal, meditate, or simply relax by the beach,
+          this is an opportunity to recharge, refocus, reflect on your journey, let
+          go of burdens, and prepare your heart for Easter.
+        </p>
+        <p>
+          ​Come as you are, rest as you need, and leave with a renewed spirit.
+          🌿✨
+        </p>
+      </div>
+      <div class="order-first md:order-none md:w-1/2">
+        <blockquote class="">
+          <h3
+            class="text-balance font-serif text-5xl font-normal text-slate-600"
+          >
+            "No Event Fee, No Frills, No Agenda—Just Pure Relaxation"
+          </h3>
+        </blockquote>
+      </div>
+    </article>
+  </SectionWrapper>
+  <!-- CTA section -->
+  <SectionWrapper class="~py-16/24">
+    <article class="~md/lg:~px-0/40">
+      <ul class="flex w-full flex-col md:flex-row [&_li]:border [&_li]:p-12">
+        <li><Icon class="mx-auto" name="tent-icon" size={120} /></li>
+        <li class="flex-1 space-y-4">
+          <h4 class="h4-heading-sizing text-center font-serif text-slate-900">
+            Slow Down with Us this Holy Week
+          </h4>
+          <Link
+            href="https://lu.ma/event/evt-5F9kyG4uw0xJhqW"
+            data-luma-action="checkout"
+            className="px-8 w-full bg-brand-color text-white rounded-none border hover:bg-brand-color-darker border-brand-color py-8 text-lg transition-colors"
+            data-luma-event-id="evt-5F9kyG4uw0xJhqW"
+          >
+            Join the event
+          </Link>
+        </li>
+      </ul>
+    </article>
+  </SectionWrapper>
+  <!-- FAQ section -->
+  <SectionWrapper class="~py-16/24">
+    <article class="flex flex-col gap-20 ~md/lg:~px-0/40">
+      <h2 class="h2-heading-sizing text-center font-serif text-slate-900">
+        Frequently Asked Questions
+      </h2>
+      <FAQ faqItems={campAndReflectfaqItems} client:load />
     </article>
   </SectionWrapper>
 </BaseLayout>
+
+<style>
+  .hero-wrapper {
+    display: grid;
+    grid-template-areas: "stacked";
+    & > * {
+      grid-area: stacked;
+    }
+
+    .hero-main-content {
+      place-content: center;
+      text-align: center;
+    }
+  }
+</style>
+<script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"
+></script>

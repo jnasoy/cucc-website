@@ -28,7 +28,7 @@ export interface OutreachEvent {
   previewPhotos?: BasicImageMeta[] | null;
 }
 
-export interface FAQ {
+export interface FAQItem {
   question: string;
   answer: string;
 }

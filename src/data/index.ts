@@ -1,4 +1,4 @@
-import type { OutreachEvent, BasicImageMeta, FAQ } from "@/types";
+import type { OutreachEvent, BasicImageMeta, FAQItem } from "@/types";
 
 export const aboutSectionImages: BasicImageMeta[] = [
   {
@@ -129,7 +129,7 @@ export const outreachEvents: OutreachEvent[] = [
   },
 ];
 
-export const faqItems:FAQ[] = [
+export const unityInActionfaqItems:FAQItem[] = [
   {
     question: "Why Unity in Action?",
     answer:
@@ -159,5 +159,33 @@ export const faqItems:FAQ[] = [
     question: "How do I volunteer to take part in the outreach activity?",
     answer:
       'We will open a registration form soon. For the meantime, we will need you to <a class="text-brand-color underline transition-all hover:text-brand-color-darker" href="https://m.me/cebuunitedcarcampers" target="_blank">contact us via our official Facebook page</a> and state your interest in volunteering.',
+  },
+];
+
+export const campAndReflectfaqItems:FAQItem[] = [
+  {
+    question: "Is there an event fee?",
+    answer:
+      "Nope! This event is completely free (You only pay the campsite fee onsite). Just bring yourself, your essentials, and an open heart.",
+  },
+  {
+    question: "Do I need to sign up or RSVP?",
+    answer:
+      "While there is no event fee, we encourage registration. Registered participants will receive free stickers and a merchandise discount.",
+  },
+  {
+    question:
+      "Are there scheduled activities?",
+    answer:
+      "No set schedules here. This retreat is all about freedom and flow. You're encouraged to do whatever helps you slow down—whether that’s taking long walks, journaling, praying, or simply doing nothing.",
+  },
+  {
+    question: "Is this a religious event?",
+    answer: "While it's not a formal religious gathering, the event is rooted in the spirit of Holy Week—a time to pause, reflect, and prepare for Easter. It's open to everyone seeking a quiet, meaningful retreat.",
+  },
+  {
+    question: "Can we bring music?",
+    answer:
+      "We encourage a peaceful and mindful atmosphere. Acoustic instruments like a guitar or kalimba are welcome if played gently and respectfully. Please avoid loud speakers or disruptive music.",
   },
 ];

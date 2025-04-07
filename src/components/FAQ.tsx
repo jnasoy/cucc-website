@@ -6,8 +6,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import { faqItems } from "@/data";
-const FAQ = () => {
+import type { FAQItem } from "@/types";
+const FAQ = ({ faqItems }: { faqItems: FAQItem[] }) => {
   return (
     <Accordion type="single" collapsible className="w-full">
       {faqItems.map((item, index) => {
