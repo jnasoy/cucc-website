@@ -19,7 +19,7 @@ import snowStarPatter from "@/assets/snow-star-bg-pattern.png";
 import missionariesOfThePoor from "@/assets/missionaries-of-the-poor.webp";
 import BaseHead from "@/components/BaseHead.astro";
 
-import { aboutSectionImages } from "@/data";
+import { aboutSectionImages, unityInActionfaqItems } from "@/data";
 
 const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
   (result, item, index) => {
@@ -223,7 +223,7 @@ const groupedAboutSectionImages = aboutSectionImages.reduce<BasicImageMeta[][]>(
       <h2 class="h2-heading-sizing text-center font-serif text-slate-900">
         Frequently Asked Questions
       </h2>
-      <FAQ client:load />
+      <FAQ faqItems={unityInActionfaqItems} client:load />
     </article>
   </SectionWrapper>
 

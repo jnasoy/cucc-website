@@ -1,7 +1,7 @@
 {
   "name": "cucc-website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "scripts": {
     "dev": "astro dev --host",
     "start": "astro dev",
@@ -29,6 +29,7 @@
     "astro-icon": "^1.1.2",
     "astro-integration-lottie": "^0.3.1",
     "astro-seo": "^0.8.4",
+    "astro-tooltips": "^0.6.2",
     "astrojs-service-worker": "^2.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -47,6 +48,7 @@
     "vaul": "^1.1.1"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "fluid-tailwind": "^1.0.4"
   }
 }

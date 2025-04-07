@@ -93,6 +93,7 @@ export default {
     },
 	plugins: [
 		fluid,
-    require("tailwindcss-animate")
+    require("tailwindcss-animate"),
+		require('@tailwindcss/typography'),
     ],
 }
