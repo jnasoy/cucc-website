@@ -9,10 +9,16 @@ import { Tooltips } from "astro-tooltips";
 import { Icon } from "astro-icon/components";
 import { Link } from "@/components/Link";
 import heroVideo from "@/assets/Camp And Reflect Hero Video (Optimized).mp4";
+import ogImage from "@/assets/camp-n-reflect-og-image.jpg";
 ---
 
 <BaseLayout>
-  <BaseHead slot="base-head" />
+  <BaseHead
+    slot="base-head"
+    title="Cebu United Car Campers | Camp & Reflect: A Lenten Campout"
+    description="A gentle, no-fee campout during Holy Week. No plans, just space to pause, reflect, and rest by the beach."
+    ogImage={ogImage}
+  />
   <Tooltips interactive={false} />
   <!-- Hero section -->
   <SectionWrapper fullBleed>
