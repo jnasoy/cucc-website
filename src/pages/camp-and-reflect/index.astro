@@ -10,6 +10,7 @@ import { Icon } from "astro-icon/components";
 import { Link } from "@/components/Link";
 import heroVideo from "@/assets/Camp And Reflect Hero Video (Optimized).mp4";
 import ogImage from "@/assets/camp-n-reflect-og-image.jpg";
+import videoImageFallback from "@/assets/camp-n-reflect-video-fallback.jpeg";
 ---
 
 <BaseLayout>
@@ -23,8 +24,13 @@ import ogImage from "@/assets/camp-n-reflect-og-image.jpg";
   <!-- Hero section -->
   <SectionWrapper fullBleed>
     <article class="hero-wrapper">
-      <video class="h-lvh object-cover" muted src={heroVideo} autoplay loop
-      ></video>
+      <video
+        class="h-lvh object-cover"
+        poster={videoImageFallback.src}
+        muted
+        src={heroVideo}
+        autoplay
+        loop></video>
       <div
         class="inner-content-wrapper hero-main-content z-10 space-y-14 pt-[calc(var(--header-height)+var(--header-added-height)+var(--hero-extra-top-padding))] ~pb-16/24"
       >
