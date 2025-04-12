@@ -180,6 +180,11 @@ export const campAndReflectfaqItems:FAQItem[] = [
       "No set schedules here. This retreat is all about freedom and flow. You're encouraged to do whatever helps you slow down—whether that’s taking long walks, journaling, praying, or simply doing nothing.",
   },
   {
+    question: "Can I reserve a specific spot at the campground?",
+    answer:
+      "Spots will be first come, first served. There are no assigned areas or reservations. We encourage early arrival if you have specific preferences, but no matter where you end up, the space is shared, open, and welcoming. Just find a spot that feels right and settle in.",
+  },
+  {
     question: "Is this a religious event?",
     answer: "While it's not a formal religious gathering, the event is rooted in the spirit of Holy Week—a time to pause, reflect, and prepare for Easter. It's open to everyone seeking a quiet, meaningful retreat.",
   },
