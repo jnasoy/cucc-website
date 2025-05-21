@@ -8,6 +8,25 @@ import Footer from "@/components/Footer.astro";
 
 <html lang="en">
   <head>
+    <script is:inline>
+      (function() {
+        try {
+          let theme = localStorage.getItem('theme');
+          if (!theme) {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (_) {
+          // If something goes wrong, default to light theme
+          // and remove dark class if it was somehow set
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <slot name="base-head" />
   </head>
   <body>

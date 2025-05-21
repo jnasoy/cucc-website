@@ -2,6 +2,7 @@
 import { Link } from "@/components/Link";
 import { MobileNav } from "@/components/MobileNav";
 import { siteConfig } from "@/config/site";
+import ThemeToggle from "@/components/ThemeToggle.tsx";
 
 import cuccLogo from "@/assets/cucc-wordmark-logo.svg?raw";
 const currentPath = Astro.url.pathname.split("/")[1];
@@ -49,6 +50,7 @@ const currentPath = Astro.url.pathname.split("/")[1];
         href="https://fb.me/g/4ejRr1Tj0/IVZL5tGc"
         target="_blank">Join Group</Link
       >
+      <ThemeToggle client:load />
       <MobileNav currentPath={currentPath} client:load />
     </div>
   </nav>

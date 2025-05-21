@@ -8,11 +8,12 @@
   --accent: 136, 58, 234;
   --accent-light: 224, 204, 250;
   --accent-dark: 49, 10, 101;
+  --gradient-end-color: white; /* Added for gradient */
   --accent-gradient: linear-gradient(
     45deg,
     rgb(var(--accent)),
     rgb(var(--accent-light)) 30%,
-    white 60%
+    var(--gradient-end-color) 60% /* Modified to use variable */
   );
 
   --page-dw: min(90vw, 1280px);
@@ -93,6 +94,7 @@ code {
     --radius: 0.5rem;
   }
   .dark {
+    --gradient-end-color: hsl(var(--background)); /* Added for gradient in dark mode */
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
